@@ -37,7 +37,7 @@ resource "aws_security_group""sg" {
   
 }
 
-resource "aws_instance" "ec2" {
+resource "aws_instance""ec2"{
 
     ami=var.ami
     instance_type=var.instance_type
