@@ -21,20 +21,20 @@ resource "aws_s3_bucket_public_access_block" "website" {
 resource "aws_s3_bucket_policy" "website" {
     bucket = aws_s3_bucket.website.id 
     depends_on = [ aws_s3_bucket_public_access_block.website ]
-    policy=jsonencode ({
-        version = "2012-10-17"
-            Statement=[
-            {
-                effect= "Allow"
-                principle= "*"
-                Action = [
-                    "s3:GetObject"
-                ]
-        Resource= "${aws_s3_bucket.website.arn}/*"        
-            }
-        ]
-    })
+   policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid = "PublicRead"
+        Effect = "Allow"
+        Principal = "*"
+        Action = "s3:GetObject"
+        Resource = "${aws_s3_bucket.website.arn}/*"
+      }
+    ]
+  })
 }
+
 
 resource "aws_s3_object" "index" {
     bucket = aws_s3_bucket.website.id 
