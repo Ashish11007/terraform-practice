@@ -23,7 +23,7 @@ resource "aws_s3_bucket_policy" "website" {
     depends_on = [ aws_s3_bucket_public_access_block.website ]
     policy=jsonencode ({
         version = "2012-10-17"
-        statement=[
+            Statement=[
             {
                 effect= "Allow"
                 principle= "*"
