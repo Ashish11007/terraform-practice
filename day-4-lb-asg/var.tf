@@ -24,7 +24,7 @@ variable "private_2a_cidr" {
 }
 
 variable "private_2a_az" {
-  default = "us_east_2a"
+  default = "us-east-2a"
 }
 
 variable "private_2b_cidr" {
