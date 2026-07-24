@@ -21,7 +21,7 @@ resource "aws_security_group" "ssh"{
     }
 }
 resource "aws_instance" "server" {
-    ami= ""
+    ami= "ami-0e5497a77ef21b5ac"
     instance_type= "t3.micro"
     key_name = aws_key_pair.key.key_name
     vpc_security_group_ids = [aws_security_group.ssh.id]
